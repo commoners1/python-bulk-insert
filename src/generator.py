@@ -40,7 +40,7 @@ def generate_db_rows_from_excel(excel_path: str, sheet_name=0) -> list[dict]:
     end_date = first_day_of_current_month()
 
     for r in rows:
-        ref_id = r["bill_number"] # your bill_number becomes refId
+        ref_id = r["bill_number"]
         register_dt = parse_register_date(r["register_date"])
 
         # 1) REG_SUCCESS row (same date as start/register date)

@@ -8,7 +8,7 @@ def build_response_text(status: str, row: dict, date_now: str = "") -> dict:
         return {
             "customer_id": row.get("email"),
             "bill_number": (row.get('bill_number')).replace("TRX_", "BILL_"),
-            "words": row.get("words", ""),          # if you have it
+            "words": row.get("words", ""),
             "mallid": row.get("mallid", "2508"),
             "chain_merchant": row.get("chain_merchant", "NA"),
             "card_number": row.get("card_number"),
@@ -53,5 +53,4 @@ def build_response_text(status: str, row: dict, date_now: str = "") -> dict:
     return {}
 
 def emphasized(s: str) -> str:
-    # helper if later you want formatting rules; keep simple for now
     return s

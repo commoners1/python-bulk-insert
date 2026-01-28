@@ -4,7 +4,6 @@ def insert_rows(engine, table_name: str, rows: list[dict]) -> int:
     if not rows:
         return 0
 
-    # remove id if your DB auto-increments and you don't want to insert it
     clean = []
     for r in rows:
         rr = dict(r)
