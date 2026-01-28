@@ -7,7 +7,7 @@ def build_response_text(status: str, row: dict, date_now: str = "") -> dict:
     if status == "REG_SUCCESS":
         return {
             "customer_id": row.get("email"),
-            "bill_number": f"BILL_{row.get('bill_number')}",
+            "bill_number": (row.get('bill_number')).replace("TRX_", "BILL_"),
             "words": row.get("words", ""),          # if you have it
             "mallid": row.get("mallid", "2508"),
             "chain_merchant": row.get("chain_merchant", "NA"),
@@ -22,7 +22,7 @@ def build_response_text(status: str, row: dict, date_now: str = "") -> dict:
         return {
             "trans_id_merchant": row.get("bill_number"),
             "payment_channel": row.get("payment_channel", "17"),
-            "bill_number": f"BILL_{row.get('bill_number')}",
+            "bill_number": (row.get('bill_number')).replace("TRX_", "BILL_"),
             "amount": str(row.get("amount")),
             "words": row.get("words", ""),
             "session_id": row.get("session_id", ""),
@@ -38,7 +38,7 @@ def build_response_text(status: str, row: dict, date_now: str = "") -> dict:
             "customer_id": row.get("email"),
             "token_id": row.get("token_id", ""),
             "card_number": row.get("card_number"),
-            "bill_number": f"BILL_{row.get('bill_number')}",
+            "bill_number": (row.get('bill_number')).replace("TRX_", "BILL_"),
             "trans_id_merchant": row.get("trans_id_merchant_paid", ""),
             "amount": str(row.get("amount")),
             "currency": row.get("currency"),
